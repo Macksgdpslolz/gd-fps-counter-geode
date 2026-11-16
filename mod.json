@@ -1,0 +1,12 @@
+{
+    "geode": "6.0.0-alpha.2",
+    "gd": {
+        "android": "2.2091",
+        "win": "2.2091"
+    },
+    "version": "v1.0.0",
+    "id": "dev.simple_fps_counter",
+    "name": "Simple FPS Counter",
+    "developer": "Player",
+    "description": "Shows FPS in top-left corner in PlayLayer"
+}
