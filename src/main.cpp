@@ -25,10 +25,11 @@ class $modify(FPSPlayLayer, PlayLayer) {
         this->addChild(label, 999);
         m_fields->m_fpsLabel = label;
         m_fields->m_lastTime = std::chrono::steady_clock::now();
+        this->scheduleUpdate();
     }
 
-    void postUpdate(float dt) {
-        PlayLayer::postUpdate(dt);
+    void update(float dt) {
+        PlayLayer::update(dt);
 
         if (!m_fields->m_fpsLabel) return;
 
