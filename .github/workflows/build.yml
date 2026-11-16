@@ -1,37 +1,29 @@
-name: Build Geode Mod
+name: Build Mod
 on: [push, workflow_dispatch]
+
 jobs:
   build:
-    name: Build (${{ matrix.name }})
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - name: Android64
-            os: ubuntu-latest
-            target: android64
-          - name: Android32
-            os: ubuntu-latest
-            target: android32
+        target: [Android64, Android32]
     steps:
       - uses: actions/checkout@v4
-      - name: Build Mod
+      - name: Build Geode Mod
         uses: geode-sdk/build-geode-mod@main
         with:
+          sdk: nightly
           target: ${{ matrix.target }}
-          sdk: v6.0.0-alpha.2
-          cli: latest
           combine: true
 
   combine:
-    name: Combine Android packages
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Combine .geode packages
+      - name: Combine Android binaries
         uses: geode-sdk/build-geode-mod/combine@main
-      - name: Upload combined mod
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: geode-mod
