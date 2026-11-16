@@ -4,9 +4,9 @@
         "android": "2.2091",
         "win": "2.2091"
     },
+    "id": "player.simple_fps",
+    "name": "Simple FPS",
     "version": "v1.0.0",
-    "id": "dev.simple_fps_counter",
-    "name": "Simple FPS Counter",
     "developer": "Player",
-    "description": "Shows FPS in top-left corner in PlayLayer"
+    "description": "Simple FPS counter"
 }
